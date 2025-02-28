@@ -1,8 +1,8 @@
-import express from 'express';
-import cors from 'cors';
-import helmet from 'helmet';
-import { config } from './config';
-import routes from './routes';
+import express from "express";
+import cors from "cors";
+import helmet from "helmet";
+import { config } from "./config";
+import routes from "./routes";
 
 const app = express();
 
@@ -12,6 +12,6 @@ app.use(helmet());
 app.use(express.json());
 
 // Routes
-app.use('/api', routes);
+app.use("/api", routes);
 
 export default app;
