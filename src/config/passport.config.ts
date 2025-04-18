@@ -5,12 +5,12 @@
 
 // const GOOGLE_CLIENT_ID =
 //   process.env.GOOGLE_CLIENT_ID ||
-//   "1042771701848-gi25mu5qgbag5kknl9dmpoofap16r35l.apps.googleusercontent.com";
+//   "";
 // const GOOGLE_CLIENT_SECRET =
-//   process.env.GOOGLE_CLIENT_SECRET || "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";
+//   process.env.GOOGLE_CLIENT_SECRET || "";
 // const CALLBACK_URL =
 //   process.env.GOOGLE_CALLBACK_URL ||
-//   "http://localhost:3000/api/auth/google/callback";
+//   "";
 
 // passport.serializeUser((user: any, done) => {
 //   done(null, user.id);
