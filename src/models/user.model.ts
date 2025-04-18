@@ -1,0 +1,33 @@
+import mongoose, { Schema } from "mongoose";
+import { IUser } from "../types";
+
+const UserSchema: Schema = new Schema(
+  {
+    firstName: { type: String },
+    lastName: { type: String },
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+      trim: true,
+      lowercase: true
+    },
+    password: { type: String, required: true },
+    role: {
+      type: String,
+      required: true,
+      enum: ["admin", "manager", "user"],
+      default: "user"
+    },
+    active: {
+      type: Boolean,
+      default: true
+    },
+    lastLogin: {
+      type: Date
+    }
+  },
+  { timestamps: true }
+);
+
+export default mongoose.model<IUser & mongoose.Document>("User", UserSchema);

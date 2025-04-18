@@ -1,28 +1,13 @@
 {
   "compilerOptions": {
-    "target": "ES2021",
-    "module": "ESNext",
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "strictFunctionTypes": true,
-    "noImplicitThis": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "skipLibCheck": true,
-    "declaration": true,
-    "sourceMap": true,
+    "target": "es2016",
+    "module": "commonjs",
     "outDir": "./dist",
-    "baseUrl": "./src",
-    "paths": {
-      "*": ["*"]
-    }
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
   },
-  "include": ["src/**/*", "eslint.config.mjs"], // Ajoutez cette ligne],
-  "exclude": ["node_modules", "**/*.spec.ts", "**/*.test.ts"]
+  "include": ["src/**/*", "eslint.config.mjs"],
+  "exclude": ["node_modules"]
 }
