@@ -1,19 +1,18 @@
+import dotenv from "dotenv";
+dotenv.config();
 import express, { Application, Request, Response } from "express";
 import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
-import dotenv from "dotenv";
+
 import swaggerUi from "swagger-ui-express";
 import session from "express-session";
-// import passport from "./config/passport.config"; // Importez votre config Passport
+import passport from "./config/passport.config"; // Importez votre config Passport
 import routes from "./routes/index";
 import { HealthMonitor } from "./utils/healthMonitor";
 import { discordService } from "./utils/discord";
-
 import { errorMiddleware } from "./middlewares/error.middleware";
 import { logger } from "./utils/logger";
-
-dotenv.config();
 
 const app: Application = express();
 
@@ -35,8 +34,8 @@ console.log({
 });
 
 // Initialisation de Passport
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Middleware
 app.use(cors());

@@ -25,6 +25,11 @@ const UserSchema: Schema = new Schema(
     },
     lastLogin: {
       type: Date
+    },
+    provider: {
+      type: String,
+      enum: ["local", "google"],
+      default: "local"
     }
   },
   { timestamps: true }

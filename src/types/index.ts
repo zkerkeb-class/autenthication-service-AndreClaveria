@@ -7,6 +7,7 @@ export interface IUser {
   role: "admin" | "manager" | "user";
   active: boolean;
   lastLogin?: Date;
+  provider?: "local" | "google";
   createdAt?: Date;
   updatedAt?: Date;
 }
@@ -18,6 +19,8 @@ export interface ILoginResponse {
     lastName: string;
     email: string;
     role: string;
+    active: boolean;
+    lastLogin?: Date;
   };
   token: string;
 }

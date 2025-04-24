@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import * as userService from "../services/user.service";
 import { logger } from "../utils/logger";
 import { comparePassword } from "../utils/password.utils";
-
+import { IUser } from "../types";
 export const getAllUsers = async (
   req: Request,
   res: Response
@@ -62,6 +62,21 @@ export const updateUser = async (
   }
 };
 
+export const createUser = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  try {
+    const userData: IUser = req.body;
+    const newUser = await userService.createUser(userData);
+    res.status(201).json(newUser);
+  } catch (error) {
+    logger.error("Error in createUser controller", error);
+    res
+      .status(500)
+      .json({ message: "Erreur lors de la création de l'utilisateur" });
+  }
+};
 export const deleteUser = async (
   req: Request,
   res: Response

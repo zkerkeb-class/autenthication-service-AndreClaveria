@@ -33,7 +33,6 @@ export const loginOrRegister = async (
   password: string
 ): Promise<AuthResponse> => {
   try {
-    // D'abord, essayez de trouver l'utilisateur
     const user = await User.findOne({ email });
 
     if (user) {
@@ -119,5 +118,39 @@ export const loginOrRegister = async (
   } catch (error) {
     logger.error("Error in loginOrRegister service", error);
     throw error;
+  }
+};
+
+// Ajouter cette fonction à votre auth.service.ts
+
+export const verifyPassword = async (
+  email: string,
+  password: string
+): Promise<boolean> => {
+  try {
+    // Trouver l'utilisateur par email
+    const user = await User.findOne({ email });
+
+    // Si l'utilisateur n'existe pas
+    if (!user) {
+      return false;
+    }
+
+    // Vérifier si le compte est actif
+    if (!user.active) {
+      return false;
+    }
+
+    // Vérifier le mot de passe
+    const cleanPassword = password.trim();
+    if (!cleanPassword) {
+      return false;
+    }
+
+    const isPasswordValid = comparePassword(cleanPassword, user.password);
+    return isPasswordValid;
+  } catch (error) {
+    logger.error("Error in verifyPassword service", error);
+    return false;
   }
 };

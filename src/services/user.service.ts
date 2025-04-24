@@ -38,10 +38,13 @@ export const getUserByEmail = async (
 
 export const createUser = async (userData: IUser): Promise<IUser> => {
   try {
+    console.log(userData.password);
     if (userData.password) {
       const salt = generateSalt();
       userData.password = hashPassword(userData.password, salt);
     }
+
+    console.log(userData.password);
 
     const newUser = new User(userData);
     const savedUser = await newUser.save();
