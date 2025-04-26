@@ -23,6 +23,14 @@ const UserSchema: Schema = new Schema(
       type: Boolean,
       default: true
     },
+    teams: [
+      {
+        type: String // Stocker simplement les IDs sous forme de chaînes
+      }
+    ],
+    companyId: {
+      type: String // Stocker simplement l'ID sous forme de chaîne
+    },
     lastLogin: {
       type: Date
     },

@@ -6,6 +6,8 @@ export interface IUser {
   password: string;
   role: "admin" | "manager" | "user";
   active: boolean;
+  teams?: string[]; // IDs des équipes auxquelles l'utilisateur appartient
+  companyId?: string; // ID de l'entreprise principale de l'utilisateur
   lastLogin?: Date;
   provider?: "local" | "google";
   createdAt?: Date;
@@ -20,6 +22,8 @@ export interface ILoginResponse {
     email: string;
     role: string;
     active: boolean;
+    teams?: string[];
+    companyId?: string;
     lastLogin?: Date;
   };
   token: string;

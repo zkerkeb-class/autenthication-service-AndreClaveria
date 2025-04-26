@@ -34,11 +34,6 @@ passport.use(
         logger.info("Google authentication callback received");
         logger.info(`Profile email: ${profile.emails?.[0]?.value}`);
 
-        const lastName =
-          profile.name?.familyName ||
-          profile.displayName.split(" ").slice(1).join(" ") ||
-          "Utilisateur Google";
-
         let user = await User.findOne({ email: profile.emails?.[0]?.value });
 
         if (user) {

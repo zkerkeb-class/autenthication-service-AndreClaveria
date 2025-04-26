@@ -9,11 +9,10 @@ interface DecodedToken {
   role: string;
 }
 
-// Utiliser un nom différent pour éviter le conflit
 declare global {
   namespace Express {
     interface Request {
-      jwtUser?: DecodedToken; // Renommé de 'user' à 'jwtUser'
+      jwtUser?: DecodedToken;
     }
   }
 }

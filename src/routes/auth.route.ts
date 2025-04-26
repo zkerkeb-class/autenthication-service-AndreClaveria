@@ -53,6 +53,10 @@ router.get(
         firstName: user.firstName || "",
         lastName: user.lastName || "",
         role: user.role,
+        provider: user.provider,
+        teams: user.teams || [],
+        companyId: user.companyId,
+        lastLogin: user.lastLogin,
         active: user.active
       };
 
