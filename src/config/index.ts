@@ -4,8 +4,7 @@ const config = {
     port: process.env.PORT || 3002,
     env: process.env.NODE_ENV || "development",
     frontend_url: process.env.FRONTEND_URL || "http://localhost:3000",
-    notification_url:
-      process.env.NOTIFICATION_URL || "http://localhost:3002/api/notification",
+    notification_url: process.env.NOTIFICATION_URL || "",
     protocol: process.env.PROTOCOL || "http"
   },
   database: {
